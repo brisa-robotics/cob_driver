@@ -281,7 +281,7 @@ class NodeClass
 			if(inverted) {
 				// to be really accurate, we now invert time_increment
 				// laserScan.header.stamp = laserScan.header.stamp + ros::Duration(scan_duration); //adding of the sum over all negative increments would be mathematically correct, but looks worse.
-				laserScan.time_increment = - laserScan.time_increment;
+				laserScan.time_increment = fabs(laserScan.time_increment);
 			} else {
 				laserScan.header.stamp = laserScan.header.stamp - ros::Duration(scan_duration); //to be consistent with the omission of the addition above
 			}
